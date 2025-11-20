@@ -133,6 +133,34 @@
 					<addResources>false</addResources>
 				</configuration>
 			</plugin>
+			<!-- PlantUML maven plugin -->
+			<plugin>
+				<groupId>de.elnarion.maven</groupId>
+				<artifactId>plantuml-generator-maven-plugin</artifactId>
+				<version>2.4.1</version>
+				<executions>
+					<execution>
+						<id>generate-plantuml</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${project.build.directory}/plantuml</outputDirectory>
+					<outputFilename>testdiagram1.txt</outputFilename>
+					<scanPackages>
+						<scanPackage>com.khoubyari.example</scanPackage>
+					</scanPackages>
+				</configuration>
+			</plugin>
+			<!-- overwritten .war-plugin to make the project compatible with Java 11+ -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.4.0</version>
+			</plugin>
 		</plugins>
 	</build>
 </project>
