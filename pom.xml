@@ -161,6 +161,30 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.4.0</version>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.6.2</version>
+				<executions>
+					<execution>
+						<id>postprocessing</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>python</executable>
+							<workingDirectory>${project.basedir}</workingDirectory>
+							<arguments>
+								<argument>scripts/postprocessing.py</argument>
+								<argument>${project.build.directory}/plantuml/testdiagram1.txt</argument>
+								<argument>${project.build.directory}/plantuml/testdiagram1-clean.txt</argument>
+								<argument>com.khoubyari.example.</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
