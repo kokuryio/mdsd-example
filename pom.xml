@@ -178,8 +178,11 @@
 							<arguments>
 								<argument>scripts/postprocessing.py</argument>
 								<argument>${project.build.directory}/plantuml/testdiagram1.txt</argument>
-								<argument>${project.build.directory}/plantuml/testdiagram1-clean.txt</argument>
+								<argument>${project.build.directory}/plantuml/testdiagram1-colored.txt</argument>
 								<argument>com.khoubyari.example.</argument>
+								<argument>${project.basedir}</argument>
+								<argument>.</argument>
+								<argument>RestControllerAspect,Application,SwaggerConfig</argument>
 							</arguments>
 						</configuration>
 					</execution>
